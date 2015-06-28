@@ -14,6 +14,7 @@
 @interface THPhotosViewController ()
 
 @property (nonatomic) NSString *accessToken;
+@property (nonatomic) NSArray *photos;
 
 @end
 
@@ -53,30 +54,44 @@
             [userDefaults synchronize];
         }];
     } else {
-        //obtains all the information about photos that used "pokemon" tag
-        NSURLSession *session = [NSURLSession sharedSession];
-        NSString *urlString = [[NSString alloc] initWithFormat:@"https://api.instagram.com/v1/tags/pokemon/media/recent?access_token=%@", self.accessToken];
-        NSURL *url = [[NSURL alloc] initWithString:urlString];
-        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
-        NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:request completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
-            NSString *text = [[NSString alloc] initWithContentsOfURL:location encoding:NSUTF8StringEncoding error:nil];
-            NSLog(@"text: %@", text);
-        }];
-        [task resume];
+        [self refresh];
     }
     
 }
 
+- (void)refresh {
+    //obtains all the information about photos that used "pokemon" tag
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"https://api.instagram.com/v1/tags/pokemon/media/recent?access_token=%@", self.accessToken];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+    NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:request completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+        
+        NSData *data = [[NSData alloc] initWithContentsOfURL:location];
+        //transfer JSON into objective-c objects (returns dictionary with arrays, strings, etc.)
+        NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        
+        //obtain all photos
+        self.photos = [responseDictionary valueForKeyPath:@"data"];
+        
+        dispatch_async(dispatch_get_main_queue(), ^ {
+            [self.collectionView reloadData];
+        });
+        
+    }];
+    [task resume];
+}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return [self.photos count];
 }
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"photo" forIndexPath:indexPath];
+    THPhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"photo" forIndexPath:indexPath];
     
     cell.backgroundColor = [UIColor lightGrayColor];
+    cell.photo = self.photos[indexPath.row];
     
     return cell;
 }
