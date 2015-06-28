@@ -12,6 +12,7 @@
 @interface THDetailViewController ()
 
 @property (nonatomic) UIImageView *imageView;
+@property (nonatomic) UIDynamicAnimator *animator;
 
 @end
 
@@ -21,7 +22,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.95];
-    self.imageView = [[UIImageView alloc] init];
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, -320.0, 320.0f, 320.0f)];
     [self.view addSubview:self.imageView];
     
     [THPhotoController imageForPhoto:self.photo size:@"standard_resolution" completion:^(UIImage *image) {
@@ -30,19 +31,24 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close)];
     [self.view addGestureRecognizer:tap];
+    
+    //adding snap behavior
+    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
 }
 
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
-    //size of view in viewcontroller
-    CGSize size = self.view.bounds.size;
-    CGSize imageSize = CGSizeMake(size.width, size.width);
-    
-    self.imageView.frame = CGRectMake(0.0, (size.height - imageSize.height) / 2.0, imageSize.width, imageSize.height);
+    UISnapBehavior *snap = [[UISnapBehavior alloc] initWithItem:self.imageView snapToPoint:self.view.center];
+    [self.animator addBehavior:snap];
 }
 
 - (void)close {
+    [self.animator removeAllBehaviors];
+    UISnapBehavior *snap = [[UISnapBehavior alloc] initWithItem:self.imageView snapToPoint:CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(self.view.bounds) + 180.0f)];
+    [self.animator addBehavior:snap];
+    
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

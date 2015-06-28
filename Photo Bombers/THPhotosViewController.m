@@ -35,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Photo Bombers";
+    self.title = @"Stalk Some People";
     
     [self.collectionView registerClass:[THPhotoCell class] forCellWithReuseIdentifier:@"photo"];
     self.collectionView.backgroundColor = [UIColor whiteColor];
