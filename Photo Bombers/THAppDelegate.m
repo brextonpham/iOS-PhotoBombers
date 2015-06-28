@@ -1,9 +1,7 @@
 //
 //  THAppDelegate.m
-//  Photo Bombers
 //
-//  Created by Sam Soffes on 1/28/14.
-//  Copyright (c) 2014 Treehouse. All rights reserved.
+//  Created by Brexton Pham on 6/28/15.
 //
 
 #import "THAppDelegate.h"
