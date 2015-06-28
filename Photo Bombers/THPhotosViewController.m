@@ -8,6 +8,7 @@
 
 #import "THPhotosViewController.h"
 #import "THPhotoCell.h"
+#import "THDetailViewController.h"
 
 #import <SimpleAuth/SimpleAuth.h>
 
@@ -63,9 +64,9 @@
 }
 
 - (void)refresh {
-    //obtains all the information about photos that used "pokemon" tag
+    //obtains all the information about photos that used "breaking bad" tag
     NSURLSession *session = [NSURLSession sharedSession];
-    NSString *urlString = [[NSString alloc] initWithFormat:@"https://api.instagram.com/v1/tags/pokemon/media/recent?access_token=%@", self.accessToken];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"https://api.instagram.com/v1/tags/breakingbad/media/recent?access_token=%@", self.accessToken];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:request completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
@@ -97,6 +98,14 @@
     cell.photo = self.photos[indexPath.row];
     
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary *photo = self.photos[indexPath.row];
+    THDetailViewController *viewController = [[THDetailViewController alloc] init];
+    viewController.photo = photo;
+    
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 @end
