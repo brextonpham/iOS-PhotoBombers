@@ -45,13 +45,16 @@
     if (self.accessToken == nil) { //not logged in
         //launch authorization
         //sets up instagram authorization
-        [SimpleAuth authorize:@"instagram" completion:^(NSDictionary *responseObject, NSError *error) {
+        [SimpleAuth authorize:@"instagram" options:@{@"scope": @[@"likes"]} completion:^(NSDictionary *responseObject, NSError *error) {
             
-            NSString *accessToken = responseObject[@"credentials"][@"token"];
+            self.accessToken = responseObject[@"credentials"][@"token"];
             //save access token to access it later
             
-            [userDefaults setObject:accessToken forKey:@"accessToken"];
+            [userDefaults setObject:self.accessToken forKey:@"accessToken"];
             [userDefaults synchronize];
+            
+            //cause view to reload after sign in
+            [self refresh];
         }];
     } else {
         [self refresh];
