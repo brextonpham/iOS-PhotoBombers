@@ -22,6 +22,7 @@
 		B33C30EF1897F89B00E29FB2 /* Photo_BombersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B33C30EE1897F89B00E29FB2 /* Photo_BombersTests.m */; };
 		B33C30FA1897F90500E29FB2 /* THPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33C30F91897F90500E29FB2 /* THPhotosViewController.m */; };
 		B33C31001898032B00E29FB2 /* THPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B33C30FF1898032B00E29FB2 /* THPhotoCell.m */; };
+		D67D30831B40816D0097F54C /* THPhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67D30821B40816D0097F54C /* THPhotoController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		B33C30FE1898032B00E29FB2 /* THPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPhotoCell.h; sourceTree = "<group>"; };
 		B33C30FF1898032B00E29FB2 /* THPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPhotoCell.m; sourceTree = "<group>"; };
 		B33C310118980F5600E29FB2 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D67D30811B40816D0097F54C /* THPhotoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPhotoController.h; sourceTree = "<group>"; };
+		D67D30821B40816D0097F54C /* THPhotoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPhotoController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +142,8 @@
 				B33C30F91897F90500E29FB2 /* THPhotosViewController.m */,
 				B33C30FE1898032B00E29FB2 /* THPhotoCell.h */,
 				B33C30FF1898032B00E29FB2 /* THPhotoCell.m */,
+				D67D30811B40816D0097F54C /* THPhotoController.h */,
+				D67D30821B40816D0097F54C /* THPhotoController.m */,
 			);
 			path = "Photo Bombers";
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 				B33C30DA1897F89B00E29FB2 /* THAppDelegate.m in Sources */,
 				B33C30FA1897F90500E29FB2 /* THPhotosViewController.m in Sources */,
 				B33C31001898032B00E29FB2 /* THPhotoCell.m in Sources */,
+				D67D30831B40816D0097F54C /* THPhotoController.m in Sources */,
 				B33C30D61897F89B00E29FB2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
