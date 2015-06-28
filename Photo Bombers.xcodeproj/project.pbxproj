@@ -24,6 +24,8 @@
 		B33C31001898032B00E29FB2 /* THPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B33C30FF1898032B00E29FB2 /* THPhotoCell.m */; };
 		D67D30831B40816D0097F54C /* THPhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67D30821B40816D0097F54C /* THPhotoController.m */; };
 		D67D30861B4085C90097F54C /* THDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67D30851B4085C90097F54C /* THDetailViewController.m */; };
+		D67D30891B408B650097F54C /* THPresentDetailTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = D67D30881B408B650097F54C /* THPresentDetailTransition.m */; };
+		D67D308C1B408E8B0097F54C /* THDismissDetailTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = D67D308B1B408E8B0097F54C /* THDismissDetailTransition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,10 @@
 		D67D30821B40816D0097F54C /* THPhotoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPhotoController.m; sourceTree = "<group>"; };
 		D67D30841B4085C90097F54C /* THDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THDetailViewController.h; sourceTree = "<group>"; };
 		D67D30851B4085C90097F54C /* THDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THDetailViewController.m; sourceTree = "<group>"; };
+		D67D30871B408B650097F54C /* THPresentDetailTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPresentDetailTransition.h; sourceTree = "<group>"; };
+		D67D30881B408B650097F54C /* THPresentDetailTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPresentDetailTransition.m; sourceTree = "<group>"; };
+		D67D308A1B408E8B0097F54C /* THDismissDetailTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THDismissDetailTransition.h; sourceTree = "<group>"; };
+		D67D308B1B408E8B0097F54C /* THDismissDetailTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THDismissDetailTransition.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +155,10 @@
 				D67D30821B40816D0097F54C /* THPhotoController.m */,
 				D67D30841B4085C90097F54C /* THDetailViewController.h */,
 				D67D30851B4085C90097F54C /* THDetailViewController.m */,
+				D67D30871B408B650097F54C /* THPresentDetailTransition.h */,
+				D67D30881B408B650097F54C /* THPresentDetailTransition.m */,
+				D67D308A1B408E8B0097F54C /* THDismissDetailTransition.h */,
+				D67D308B1B408E8B0097F54C /* THDismissDetailTransition.m */,
 			);
 			path = "Photo Bombers";
 			sourceTree = "<group>";
@@ -316,6 +326,8 @@
 				B33C30DA1897F89B00E29FB2 /* THAppDelegate.m in Sources */,
 				B33C30FA1897F90500E29FB2 /* THPhotosViewController.m in Sources */,
 				B33C31001898032B00E29FB2 /* THPhotoCell.m in Sources */,
+				D67D30891B408B650097F54C /* THPresentDetailTransition.m in Sources */,
+				D67D308C1B408E8B0097F54C /* THDismissDetailTransition.m in Sources */,
 				D67D30831B40816D0097F54C /* THPhotoController.m in Sources */,
 				B33C30D61897F89B00E29FB2 /* main.m in Sources */,
 				D67D30861B4085C90097F54C /* THDetailViewController.m in Sources */,
